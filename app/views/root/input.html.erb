@@ -1,2 +1,8 @@
-<h1>Root#input</h1>
-<p>Find me in app/views/root/input.html.erb</p>
+<div id="form">
+    <%= form_with url: "root/show", method: :get do |form| %>
+    <%= form.label :query, "Введите число для поиска дружественных чисел в промежутке от 1 до этого числа:", :class => 'label-form' %>
+    <%= form.text_field :query, value: "350" %>
+    <%= form.submit "Поиск", class: 'btn btn-danger' %>
+    <% end %>
+    <%= flash[:notice] %>
+</div>
