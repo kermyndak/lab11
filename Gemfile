@@ -71,4 +71,8 @@ group :test do
   gem "webdrivers"
 end
 
-gem "rspec-rails", "~> 6.0"
+gem "rspec-rails", "~> 6.0.1"
+
+gem "nokogiri", "~> 1.13"
+
+gem "rails-controller-testing", "~> 1.0"
