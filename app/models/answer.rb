@@ -31,7 +31,6 @@ class Answer < ApplicationRecord
   end
 
   def set_params
-    @arr = []
     @number = input.to_i
     self.output = encode_output
   end

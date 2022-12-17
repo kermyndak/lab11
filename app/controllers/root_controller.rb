@@ -3,11 +3,10 @@
 # This class - controller for work with pages input and show
 class RootController < ApplicationController
   before_action :set_params, only: [:show]
+  before_action :check, only: [:show]
   def input; end
 
   def show
-    return unless check
-
     if @out.nil?
       @arr.save!
       @arr = @arr.decode_output
@@ -27,10 +26,8 @@ class RootController < ApplicationController
   end
 
   def check
-    unless @arr.valid?
-      redirect_to root_path, notice: @arr.errors.objects.map(&:message).first
-      return false
-    end
-    true
+    return if @arr.valid?
+
+    redirect_to root_path, notice: @arr.errors.objects.map(&:message).first
   end
 end
