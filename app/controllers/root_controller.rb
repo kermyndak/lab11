@@ -7,6 +7,7 @@ class RootController < ApplicationController
 
   def show
     return unless check
+
     if @out.nil?
       @arr.save!
       @arr = @arr.decode_output

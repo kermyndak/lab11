@@ -31,11 +31,6 @@ RSpec.describe "Roots", type: :request do
         get root_show_path, params: { query: 350 }
         expect(assigns(:arr)).to eq([[220, 284]])
       end
-
-      it 'test @number' do
-        get root_show_path, params: { query: 350 }
-        expect(assigns(:number)).to eq(350)
-      end
     end
 
     context 'redirect to input' do

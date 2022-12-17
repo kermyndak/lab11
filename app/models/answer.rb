@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This class for methods and validates model Answer
 class Answer < ApplicationRecord
   validates :input, {
     presence: { message: 'Error, empty input value...' },
@@ -11,7 +14,7 @@ class Answer < ApplicationRecord
   before_create :set_params
 
   def decode_output
-    ActiveSupport::JSON.decode(self.output)
+    ActiveSupport::JSON.decode(output)
   end
 
   private
@@ -29,7 +32,7 @@ class Answer < ApplicationRecord
 
   def set_params
     @arr = []
-    @number = self.input.to_i
+    @number = input.to_i
     self.output = encode_output
   end
 
